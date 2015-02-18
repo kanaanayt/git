@@ -1,0 +1,62 @@
+
+kanaanayt@MacBookAir:~$ mkdir practse3
+kanaanayt@MacBookAir:~$ cd practse3
+kanaanayt@MacBookAir:~/practse3$ echo # practse3 >> first.txt
+
+kanaanayt@MacBookAir:~/practse3$ git init
+Initialized empty Git repository in /home/kanaanayt/practse3/.git/
+kanaanayt@MacBookAir:~/practse3$ emacs first.txt
+kanaanayt@MacBookAir:~/practse3$ git add first.txt
+kanaanayt@MacBookAir:~/practse3$ git commit -m "firs commit"
+[master (root-commit) 2683bbb] firs commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 first.txt
+kanaanayt@MacBookAir:~/practse3$ git remote add origin https://github.com/kanaanayt/practse3.git
+kanaanayt@MacBookAir:~/practse3$ git push -u origin master
+Username for 'https://github.com': kanaanayt
+Password for 'https://kanaanayt@github.com': 
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 233 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/kanaanayt/practse3.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+kanaanayt@MacBookAir:~/practse3$ git branch slave
+kanaanayt@MacBookAir:~/practse3$ git checkout slave
+Switched to branch 'slave'
+kanaanayt@MacBookAir:~/practse3$ emacs first.txt
+kanaanayt@MacBookAir:~/practse3$ git add first.txt
+kanaanayt@MacBookAir:~/practse3$ git commit -m "This is second commit"
+[slave a3a6404] This is second commit
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+kanaanayt@MacBookAir:~/practse3$ git push -u origin slave
+Username for 'https://github.com': kanaanayt
+Password for 'https://kanaanayt@github.com': 
+Counting objects: 5, done.
+Writing objects: 100% (3/3), 280 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/kanaanayt/practse3.git
+ * [new branch]      slave -> slave
+Branch slave set up to track remote branch slave from origin.
+kanaanayt@MacBookAir:~/p3test$ git fetch origin
+kanaanayt@MacBookAir:~/p3test$ git checkout -b slave origin/slave
+fatal: A branch named 'slave' already exists.
+kanaanayt@MacBookAir:~/p3test$ git merge master
+Already up-to-date.
+kanaanayt@MacBookAir:~/p3test$ git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+kanaanayt@MacBookAir:~/p3test$ git merge --no-ff slave
+Merge made by the 'recursive' strategy.
+ p3.cpp | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+kanaanayt@MacBookAir:~/p3test$ git push origin master
+Username for 'https://github.com': kanaanayt
+Password for 'https://kanaanayt@github.com': 
+Counting objects: 1, done.
+Writing objects: 100% (1/1), 252 bytes | 0 bytes/s, done.
+Total 1 (delta 0), reused 0 (delta 0)
+To https://github.com/kanaanayt/p3test.git
+   0f6d13f..1d6e694  master -> master
+kanaanayt@MacBookAir:~/p3test$ 
+
